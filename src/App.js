@@ -1,9 +1,12 @@
 import './App.css';
+import Body from './components/Body';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="font-bold bg-amber-300 text-3xl">
-      Hello Pallavi
+    <div>
+      <Header />
+      <Body />
     </div>
   );
 }
