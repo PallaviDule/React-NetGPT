@@ -1,12 +1,22 @@
 import React from 'react'
-import MainContainer from './MainContainer'
+import LoginPage from './loginPage/LoginPage';
+import Browse from './Browse';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const appRouter = createBrowserRouter([
+    {
+        path: '/',
+        element: <LoginPage />
+    },
+    {
+        path: '/browse',
+        element: <Browse />
+    }
+])
 
 const Body = () => {
   return (
-    <div>
-        Body
-        <MainContainer />
-    </div>
+    <RouterProvider router={appRouter}/>
   )
 }
 
