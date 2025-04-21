@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import LoginHeader from '../loginPage/LoginHeader'
+import Header from '../Header'
 import { USER_ICON } from '../../constants/links'
 import { signOut } from "firebase/auth";
 import { getFirebaseAuth } from '../../utils/firebase';
@@ -16,7 +16,7 @@ const BrowserHeader = () => {
     return (
         <div className='flex w-full bg-gradient-to-b from-black justify-between'>  
             <div className='relative'>   
-                <LoginHeader/>
+                <Header/>
             </div>
             <div>
                 <img

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { NETFLIX_LOGIN_PAGE_BACKGROUND } from '../../constants/links';
-import LoginHeader from './LoginHeader';
+import Header from '../Header';
 import { validateFormData } from '../../utils/validate';
 import { getFirebaseAuth } from '../../utils/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
@@ -82,7 +82,7 @@ const LoginPage = () => {
             />
         </div>
         <div className='w-full relative bg-gradient-to-b from-black'>
-          <LoginHeader />
+          <Header />
         </div>
         <form className='relative bg-black bg-opacity-85 flex flex-col w-4/12 m-auto p-12 content-center rounded-xl my-20 text-white'>
           <label className='text-3xl font-bold m-2'>{ isSignIn? 'Sign In' : 'Sign Up'}</label>
