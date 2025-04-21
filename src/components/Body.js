@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import LoginPage from './loginPage/LoginPage';
-import Browse from './Browse';
-import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import Browse from './browse/Browse';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import {onAuthStateChanged } from "firebase/auth";
 import { getFirebaseAuth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
