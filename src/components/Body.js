@@ -23,8 +23,7 @@ const Body = () => {
   useEffect(() => {
     onAuthStateChanged(getFirebaseAuth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
+        // User is signed in, see docs for a list of available properties: https://firebase.google.com/docs/reference/js/auth.user
         const {uid, email, displayName} = user;
         dispatch(addUser({uid, email, displayName}));
       } else {

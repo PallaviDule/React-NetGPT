@@ -36,4 +36,15 @@ Note: Adding steps along with link as firebase keep changing, so links might not
 
 ### Manage users
 1. You want to manage your user: [Manage Users in Firebase](https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0)
-2. 
+2. Here, you can know if any user has signed in or logged off.
+
+#### update user name
+1. You want to update user details: [User Update API](https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#update_a_users_profile)
+
+
+### Sign out
+1. [Sign out](https://firebase.google.com/docs/auth/web/password-auth?hl=en&authuser=0#next_steps)
+
+
+### Links
+1. All Auth Api: [Link](https://firebase.google.com/docs/reference/js/auth?hl=en&authuser=0)

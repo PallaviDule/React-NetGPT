@@ -3,8 +3,10 @@ import { NETFLIX_LOGIN_PAGE_BACKGROUND } from '../../constants/links';
 import LoginHeader from './LoginHeader';
 import { validateFormData } from '../../utils/validate';
 import { getFirebaseAuth } from '../../utils/firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../redux/userSlice';
 
 const inputFieldClassName = 'transparent bg-black border border-gray-200 rounded-lg h-[50px] m-2 px-3';
 
@@ -12,6 +14,7 @@ const LoginPage = () => {
   const [isSignIn, setSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const email = useRef(null); // useRef creates object email = {current: }
   const password = useRef(null);
   const userName = useRef(null);
@@ -30,16 +33,19 @@ const LoginPage = () => {
     if(message) return;
 
     if(!isSignIn) {
-      // const {successfullyLoggedIn, message} = createNewUser();
       createUserWithEmailAndPassword(getFirebaseAuth, email.current.value, password.current.value
       )
         .then((userCredential) => {
-          // Signed up 
           const user = userCredential.user;
           console.log('User in sign up:', user);
-          navigate('/browse');
-          // dispatch(addUser(user.email));
-          // ...
+          updateProfile(getFirebaseAuth.currentUser, {
+            displayName: userName.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+            }).then(() => {
+              navigate('/browse');
+              const {uid, email, displayName, photoURL} = getFirebaseAuth.currentUser;
+              dispatch(addUser({uid, email, displayName, photoURL}));
+            }).catch((error) => {
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -81,7 +87,9 @@ const LoginPage = () => {
                 src={NETFLIX_LOGIN_PAGE_BACKGROUND}
             />
         </div>
-        <LoginHeader />
+        <div className='w-full relative bg-gradient-to-b from-black'>
+          <LoginHeader />
+        </div>
         <form className='relative bg-black bg-opacity-85 flex flex-col w-4/12 m-auto p-12 content-center rounded-xl my-20 text-white'>
           <label className='text-3xl font-bold m-2'>{ isSignIn? 'Sign In' : 'Sign Up'}</label>
           {isSignIn? '':  
