@@ -25,3 +25,9 @@ This project we will host on [firebase](https://firebase.google.com/)
 
 10. After this setup, you will see few firebase files has been generated like `.firebaserc, firebase.json`
 11. `firebase deploy` - this command should deploy your app and it should give you hosting url of your app. 
+
+
+### Now let's start with Authentication
+Note: Adding steps along with link as firebase keep changing, so links might not work after time.
+1. Let's look for Authetication in [firebase doc](https://firebase.google.com/docs/auth?hl=en&authuser=0). 
+2. Look for `Email and password based authentication` -> [web](https://firebase.google.com/docs/auth/web/password-auth?authuser=0&hl=en) 

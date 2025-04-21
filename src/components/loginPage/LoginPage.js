@@ -2,6 +2,9 @@ import React, { useRef, useState } from 'react'
 import { NETFLIX_LOGIN_PAGE_BACKGROUND } from '../../constants/links';
 import LoginHeader from './LoginHeader';
 import { validateFormData } from '../../utils/validate';
+import { getFirebaseAuth } from '../../utils/firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
 
 const inputFieldClassName = 'transparent bg-black border border-gray-200 rounded-lg h-[50px] m-2 px-3';
 
@@ -16,12 +19,49 @@ const LoginPage = () => {
     setSignIn(!isSignIn);
   };
   const handleSignIn = (event) => {
+    console.log('email:', email, ' ,password:', password);
+    console.log('email:', email.current.value, ' ,password:', password.current.value);
     event.preventDefault();
-    const message = validateFormData(email.current.value, password.current.value, userName.current.value);
-    // console.log('email:', email.current.value, ' ,password:', password.current.value);
-    console.log('errorMessage:', message);
+    const message = validateFormData(email.current.value, password.current.value, userName?.current?.value); // dev@gmail.com Dev!1234
+    // console.log('errorMessage:', message);
 
     setErrorMessage(message);
+    if(message) return;
+
+    if(!isSignIn) {
+      // const {successfullyLoggedIn, message} = createNewUser();
+      createUserWithEmailAndPassword(getFirebaseAuth, email.current.value, password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          console.log('User in sign up:', user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log('User in sign up:', errorCode, ', error message:', errorMessage);
+
+          setErrorMessage(errorMessage);
+        });
+    } else {
+      console.log('User Sign in method', email.current.value, password.current.value);
+      signInWithEmailAndPassword(getFirebaseAuth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log('User in sign up:', user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log('User in sign up:', errorCode, ', error message:', errorMessage);
+
+          setErrorMessage(errorMessage);
+        });
+    }
   };
   const handleUseSignInCode = (event) => {
     event.preventDefault();
