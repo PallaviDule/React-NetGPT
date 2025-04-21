@@ -10,3 +10,4 @@
 
 ### What we have in this project
 - [Firebase Deployment & Authentication](./doc/Firebase.md)
+- [TMDB APIs](./doc/tmdbAPIs.md)
