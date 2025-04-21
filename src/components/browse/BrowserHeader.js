@@ -3,20 +3,14 @@ import LoginHeader from '../loginPage/LoginHeader'
 import { USER_ICON } from '../../constants/links'
 import { signOut } from "firebase/auth";
 import { getFirebaseAuth } from '../../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 
 const BrowserHeader = () => {
     const [showDropdown, setShowDropdown] = useState(false);
-    const navigate = useNavigate();
     const openSignOut = () => {
         setShowDropdown(!showDropdown);
     }
     const handleSignOut = () => {
-        signOut(getFirebaseAuth).then(() => {
-            navigate('/');
-          }).catch((error) => {
-            // An error happened.
-          });          
+        signOut(getFirebaseAuth);        
     };
 
     return (

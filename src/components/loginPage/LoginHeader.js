@@ -19,6 +19,7 @@ const LoginHeader = () => {
         navigate('/browse');
       } else {
         dispatch(removeUser());
+        navigate('/');
       }
     });
   }, []);

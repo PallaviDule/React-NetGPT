@@ -4,7 +4,6 @@ import LoginHeader from './LoginHeader';
 import { validateFormData } from '../../utils/validate';
 import { getFirebaseAuth } from '../../utils/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/userSlice';
 
@@ -13,7 +12,6 @@ const inputFieldClassName = 'transparent bg-black border border-gray-200 rounded
 const LoginPage = () => {
   const [isSignIn, setSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const email = useRef(null); // useRef creates object email = {current: }
   const password = useRef(null);
@@ -41,7 +39,6 @@ const LoginPage = () => {
           updateProfile(getFirebaseAuth.currentUser, {
             displayName: userName.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
             }).then(() => {
-              navigate('/browse');
               const {uid, email, displayName, photoURL} = getFirebaseAuth.currentUser;
               dispatch(addUser({uid, email, displayName, photoURL}));
             }).catch((error) => {
@@ -62,9 +59,6 @@ const LoginPage = () => {
           const user = userCredential.user;
           
           console.log('User in sign up:', user);
-          navigate('/browse');
-          // dispatch(addUser(user.email));
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
