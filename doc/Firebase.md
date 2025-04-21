@@ -121,11 +121,10 @@ signInWithEmailAndPassword(getFirebaseAuth, email, password)
 <summary><strong>Manage Authenticated Users</strong></summary>
 
 1. To get the current user:     
-    - Firebase provides api to [Get the currently signed-in user](https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#get_the_currently_signed-in_user)
-    - You can also get the currently signed-in user by using the currentUser property. If a user isn't signed in, currentUser is null:
-        ```js
-        const user = getFirebaseAuth.currentUser;
-        ```
+  You can also get the currently signed-in user by using the currentUser property. If a user isn't signed in, currentUser is null:  
+    ```js
+    const user = getFirebaseAuth.currentUser;
+    ```
 
 2. To update user profile (e.g., set display name): [Update a user's profile](https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#update_a_users_profile)
    ```js
@@ -136,14 +135,41 @@ signInWithEmailAndPassword(getFirebaseAuth, email, password)
    });
    ```
 
+3. Track user auth status using onAuthStateChanged: 
+    - This runs whenever the user's sign-in state changes (sign in/sign out). Firebase provides api to [Get the currently signed-in user](https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0#get_the_currently_signed-in_user)      
+    - onAuthStateChanged returns an unsubscribe function. This function can be called to detach the listener when your component unmounts or you no longer need it — super useful to avoid memory leaks in React apps, prevents duplicate listeners, Keeps your app performance clean and reactive.       
+    ```js
+    import { useEffect } from "react";
+    import { onAuthStateChanged } from "firebase/auth";
+    import { getFirebaseAuth } from "../utils/firebase"; // Your firebase setup file
+
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(getFirebaseAuth, (user) => {
+        if (user) {
+          console.log("User logged in:", user);
+        } else {
+          console.log("User logged out");
+        }
+      });
+
+      // 👇 Clean up the listener when the component unmounts
+      return () => unsubscribe();
+    }, []);
+    ```
+    - What unsubscribe does: It sets isUnsubscribed flag true internally, so Firebase knows not to trigger the callback anymore.
+      ```js
+      () => {
+          isUnsubscribed = true;
+          unsubscribe();
+        }
+    ```
 More: [Firebase Manage Users](https://firebase.google.com/docs/auth/web/manage-users)
 
 </details>
 
----
 
 <details>
-<summary><strong>🚪 Sign Out</strong></summary>
+<summary><strong>Sign Out</strong></summary>
 
 Docs: [Sign Out](https://firebase.google.com/docs/auth/web/password-auth?hl=en&authuser=0#next_steps)
 

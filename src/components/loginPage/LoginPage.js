@@ -21,8 +21,8 @@ const LoginPage = () => {
     setSignIn(!isSignIn);
   };
   const handleSignIn = (event) => {
-    console.log('email:', email, ' ,password:', password);
-    console.log('email:', email.current.value, ' ,password:', password.current.value);
+    // console.log('email:', email, ' ,password:', password);
+    // console.log('email:', email.current.value, ' ,password:', password.current.value);
     event.preventDefault();
     const message = validateFormData(email.current.value, password.current.value, userName?.current?.value); // dev@gmail.com Dev!1234
     // console.log('errorMessage:', message);
