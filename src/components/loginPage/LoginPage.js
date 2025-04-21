@@ -4,13 +4,14 @@ import LoginHeader from './LoginHeader';
 import { validateFormData } from '../../utils/validate';
 import { getFirebaseAuth } from '../../utils/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-
+import { useNavigate } from 'react-router-dom';
 
 const inputFieldClassName = 'transparent bg-black border border-gray-200 rounded-lg h-[50px] m-2 px-3';
 
 const LoginPage = () => {
   const [isSignIn, setSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
   const email = useRef(null); // useRef creates object email = {current: }
   const password = useRef(null);
   const userName = useRef(null);
@@ -36,6 +37,8 @@ const LoginPage = () => {
           // Signed up 
           const user = userCredential.user;
           console.log('User in sign up:', user);
+          navigate('/browse');
+          // dispatch(addUser(user.email));
           // ...
         })
         .catch((error) => {
@@ -51,14 +54,17 @@ const LoginPage = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+          
           console.log('User in sign up:', user);
+          navigate('/browse');
+          // dispatch(addUser(user.email));
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          
           console.log('User in sign up:', errorCode, ', error message:', errorMessage);
-
           setErrorMessage(errorMessage);
         });
     }

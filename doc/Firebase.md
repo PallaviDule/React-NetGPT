@@ -31,3 +31,9 @@ This project we will host on [firebase](https://firebase.google.com/)
 Note: Adding steps along with link as firebase keep changing, so links might not work after time.
 1. Let's look for Authetication in [firebase doc](https://firebase.google.com/docs/auth?hl=en&authuser=0). 
 2. Look for `Email and password based authentication` -> [web](https://firebase.google.com/docs/auth/web/password-auth?authuser=0&hl=en) 
+3. It gives you api to new create new user and signIn.
+
+
+### Manage users
+1. You want to manage your user: [Manage Users in Firebase](https://firebase.google.com/docs/auth/web/manage-users?hl=en&authuser=0)
+2. 
