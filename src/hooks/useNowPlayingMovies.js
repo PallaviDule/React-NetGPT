@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { addNowPlayingMovies } from '../redux/movieSlice';
-import { TMDB_API_OPTIONS } from '../constants/tmdb';
+import { TMDB_API_OPTIONS, TMDB_NOW_PLAYING_URL } from '../constants/tmdb';
 
 const useNowPlayingMovies = () => {
     const dispatch = useDispatch();
   
     const getNowPlayingMovies = async() => {
-      const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', TMDB_API_OPTIONS);
+      const data = await fetch(TMDB_NOW_PLAYING_URL, TMDB_API_OPTIONS);
       const json = await data.json();
   
-      console.log('Result', json.results);
+     // console.log('Result', json.results);
       dispatch(addNowPlayingMovies(json.results));
     };
   

@@ -10,7 +10,7 @@ It gives you options for api call, so we will use that for all apis.
 1. [Now Playing](https://developer.themoviedb.org/reference/movie-now-playing-list)
 2. [Video of the movie](https://developer.themoviedb.org/reference/movie-videos)
     - We need to show movie trailer in browse page.
-
+3. [Image Basics](https://developer.themoviedb.org/docs/image-basics)
 
 ### Links
 [TMDB Doc](https://developer.themoviedb.org/reference/intro/getting-started)

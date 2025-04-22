@@ -24,7 +24,7 @@ const BrowserHeader = () => {
                     onClick={openSignOut}
                 />
                 {showDropdown && 
-                    <button onClick={handleSignOut}>Sign out</button>}
+                    <button onClick={handleSignOut} className='text-white'>Sign out</button>}
             </div> 
         </div>
     )
