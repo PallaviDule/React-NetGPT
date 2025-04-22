@@ -8,4 +8,4 @@
     - flex with <div><img/><div>  - shrink to screen
     - flex with only <div><div>Dummy</div></div>  - scrollable
     - flex <img/> - no shrinking and scrollable
-6. 
+6. Making movies list relative I was able to move it on Movie Title

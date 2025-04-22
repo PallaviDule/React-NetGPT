@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
   console.log('movies:', movies, (!movies.nowPlayingMovies && !movies.popularMovies));
   
   return (
-    <div className='-mt-64'>
+    <div className='-mt-64 relative'>
       <MovieList title={'Now Playing'} movies={movies.nowPlayingMovies}/>
       <MovieList title={'Popular Movies'} movies={movies.popularMovies}/>
       <MovieList title={'Now Playing'} movies={movies.nowPlayingMovies}/>
