@@ -6,6 +6,7 @@ import { getFirebaseAuth } from '../../utils/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/userSlice';
+import NetflixBackgroundImage from '../logoImages/NetflixBackgroundImage';
 
 const inputFieldClassName = 'transparent bg-black border border-gray-200 rounded-lg h-[50px] m-2 px-3';
 
@@ -75,12 +76,7 @@ const LoginPage = () => {
 
   return (
     <div>
-        <div className='absolute'>
-            <img 
-                alt='netflix-background-logo'
-                src={NETFLIX_LOGIN_PAGE_BACKGROUND}
-            />
-        </div>
+        <NetflixBackgroundImage />
         <div className='w-full relative bg-gradient-to-b from-black'>
           <Header />
         </div>
