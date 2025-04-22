@@ -15,9 +15,7 @@ const BrowserHeader = () => {
 
     return (
         <div className='flex w-full bg-gradient-to-b from-black justify-between'>  
-            <div className='relative'>   
-                <Header/>
-            </div>
+            <Header/>
             <div>
                 <img
                     className='w-10 h-10 mx-4 my-2'
