@@ -2,6 +2,7 @@ import React from 'react'
 import { TMDB_IMAGE_URL } from '../../../constants/tmdb'
 
 const MovieCard = ({posterPath}) => {
+  if(!posterPath) return;
   return (
     <div className='px-1 w-40 flex-shrink-0 '>
         <img 

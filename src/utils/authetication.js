@@ -11,12 +11,12 @@ export const createNewUser = async (email, password) => {
             // Signed up 
             const user = userCredential.user;
             successfullyLoggedIn = true;
-            console.log('successfully sign up  in then', successfullyLoggedIn, ' , errorMessage:', errorMessage);
+            // console.log('successfully sign up  in then', successfullyLoggedIn, ' , errorMessage:', errorMessage);
         })
         .catch((error) => {
             const errorCode = error.code;
             errorMessage = error.message;
-            console.log('successfully sign up in catch', successfullyLoggedIn, ' , errorMessage:', errorMessage);
+            // console.log('successfully sign up in catch', successfullyLoggedIn, ' , errorMessage:', errorMessage);
         });
 
     return {
@@ -34,12 +34,12 @@ export const signInUser = async (email, password) => {
             // Signed up 
             const user = userCredential.user;
             successfullyLoggedIn = true;
-            console.log('successfullyLoggedIn in then', successfullyLoggedIn, ' , errorMessage:', errorMessage);
+            // console.log('successfullyLoggedIn in then', successfullyLoggedIn, ' , errorMessage:', errorMessage);
         })
         .catch((error) => {
             const errorCode = error.code;
             errorMessage = error.message;
-            console.log('successfullyLoggedIn in catch', successfullyLoggedIn, ' , errorMessage:', errorMessage);
+            // console.log('successfullyLoggedIn in catch', successfullyLoggedIn, ' , errorMessage:', errorMessage);
         });
 
 
