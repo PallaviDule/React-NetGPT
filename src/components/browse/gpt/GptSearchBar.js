@@ -26,7 +26,7 @@ const GptSearchBar = () => {
     const gptResult = {
       choices: [{
         message: {
-          content: 'Andaz Apna Apna,Hera Pheri,Chupke Chupke,Padosan,Amar Akbar Anthony' // searched for indian funny movies
+          content: 'Andaz Apna Apna,Hera Pheri,Padosan,Amar Akbar Anthony' // searched for indian funny movies
         }
       }]
     }

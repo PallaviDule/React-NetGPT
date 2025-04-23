@@ -5,6 +5,7 @@ const NetflixBackgroundImage = () => {
   return (
     <div className='fixed'>
         <img 
+            className='h-screen object-cover w-screen'
             alt='netflix-background-logo'
             src={NETFLIX_LOGIN_PAGE_BACKGROUND}
         />
