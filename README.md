@@ -13,3 +13,4 @@ Live Demo: https://react-netgpt.web.app/
 ### What we have in this project
 - [Firebase Deployment & Authentication](./doc/Firebase.md)
 - [TMDB APIs](./doc/tmdbAPIs.md)
+- [OPENAI APIs](./doc/Gpt.md)
