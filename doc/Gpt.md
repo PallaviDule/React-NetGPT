@@ -36,6 +36,8 @@
         👉 Check [Account Usage](https://platform.openai.com/account/usage). It should show $0.00 spent out of $5.00 or similar. If not — your account isn’t eligible for free tier and needs payment setup.
 
 
+## Notes
+1. You can limit your usage in your billing page, so that you or anyone don't overuse your api key.
 
 ## Links
 1. [The full API of this library](https://github.com/openai/openai-node/blob/master/api.md)
