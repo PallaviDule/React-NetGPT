@@ -12,7 +12,8 @@
     Note: These APIs are not free, they bill for the usage. So, Do not share your api-key.
 3. [Installing openai](https://www.npmjs.com/package/openai/v/4.8.0) - This doc gives you basic configuration on how you can use gpt APIs.  
     `npm install --save openai`
-4. Error you might get: Because you are directly exposing creds: so you need to set the `dangerouslyAllowBrowser` option to `true`.
+4. Error you might get: Because you are directly exposing creds
+    - Solution 1: you need to set the `dangerouslyAllowBrowser` option to `true`. This is temporary, if want to try out api
     ```js
         ERROR
         It looks like you're running in a browser-like environment.
@@ -22,6 +23,7 @@
         new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
         https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety
     ```
+    - Add key in .env
 5. Even a brand new API key can get 429s if billing isn’t added, even if you're expecting a free trial.
     1. Billing not set up   
         Even a brand new API key can get 429s if billing isn’t added, even if you're expecting a free trial.
