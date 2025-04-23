@@ -1,0 +1,2 @@
+// export const GPT_API_KEY = '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';
+export const GPT_API_KEY = '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';

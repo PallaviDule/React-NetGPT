@@ -7,7 +7,7 @@ const GptSearch = () => {
   return (
     <div>
         <NetflixBackgroundImage />
-        <div className='relative'>
+        <div className='relative bg-black bg-opacity-70 w-screen aspect-video'>
             <GptSearchBar/>
             <GptMovieSuggestions/>
         </div>

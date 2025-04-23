@@ -14,7 +14,7 @@ const Browse = () => {
   usePopularMovies();
 
   return (
-    <div className=''>
+    <div className='bg-black'>
       <BrowserHeader/>
       {
         showGptSearch ? <GptSearch/> : 

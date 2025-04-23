@@ -25,7 +25,7 @@ const BrowserHeader = () => {
     }
 
     return (
-        <div className='flex w-full bg-gradient-to-b from-black justify-between'>  
+        <div className='flex w-full bg-gradient-to-b from-black justify-between fixed z-10'>  
             <Header/>
             <div className='text-white flex flex-col'>
                 <div className='flex'>

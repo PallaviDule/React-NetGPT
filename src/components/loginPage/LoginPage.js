@@ -36,7 +36,7 @@ const LoginPage = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log('User in sign up:', user);
+          //console.log('User in sign up:', user);
           updateProfile(getFirebaseAuth.currentUser, {
             displayName: userName.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
             }).then(() => {
@@ -48,24 +48,24 @@ const LoginPage = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log('User in sign up:', errorCode, ', error message:', errorMessage);
+          // console.log('User in sign up:', errorCode, ', error message:', errorMessage);
 
           setErrorMessage(errorMessage);
         });
     } else {
-      console.log('User Sign in method', email.current.value, password.current.value);
+      // console.log('User Sign in method', email.current.value, password.current.value);
       signInWithEmailAndPassword(getFirebaseAuth, email.current.value, password.current.value)
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
           
-          console.log('User in sign up:', user);
+          // console.log('User in sign up:', user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           
-          console.log('User in sign up:', errorCode, ', error message:', errorMessage);
+          // console.log('User in sign up:', errorCode, ', error message:', errorMessage);
           setErrorMessage(errorMessage);
         });
     }

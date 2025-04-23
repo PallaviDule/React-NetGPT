@@ -7,7 +7,7 @@ const SecondaryContainer = () => {
 
   if(!movies.nowPlayingMovies || !movies.popularMovies) return;
 
-  console.log('movies:', movies, (!movies.nowPlayingMovies && !movies.popularMovies));
+  // console.log('movies:', movies, (!movies.nowPlayingMovies && !movies.popularMovies));
   
   return (
     <div className='-mt-64 relative'>
