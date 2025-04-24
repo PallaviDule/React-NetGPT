@@ -1,18 +1,30 @@
-### Issue 1: Page reloads with /? on button click
-- **Problem**:  
-When clicking a `<button>` in my React component form, the app was unexpectedly reloading and redirecting to: `http://localhost:3000/?`. This was happening every time I clicked the button — even though I just wanted to trigger a function.
-- **Cause**:    
-Using `<button>` without specifying a type defaults to `type="submit"`, which triggers a form submission and causes a page reload.
-- **Fix**:  
-    1. Recommended : Set the button type explicitly to prevent reload:   
-    `<button type="button" onClick={handleClick}>Click Me</button>`
-    2. Alternative: Use event.preventDefault()  
-        ```js
-        const handleClick = (event) => {
-        event.preventDefault(); // Stops form submission
-        console.log('clicked!');
-        };
+## Issue 1: Page Reloads with `/?` on Button Click
 
-        <button onClick={handleClick}>Click Me</button>
-        ```
-        This works but adds extra logic to the handler. Better suited when you're inside a <form> and want more nuanced control (e.g., validation before submit)
+### Problem    
+Clicking a `<button>` inside a React component was unexpectedly reloading the page and redirecting to `http://localhost:3000/?`, instead of just triggering a function.
+
+### Root Cause
+In HTML, a `<button>` inside a form defaults to `type="submit"` unless explicitly specified. This causes the form to submit, triggering a page reload.
+
+### Fix
+
+**Option 1 — Recommended:**         
+Explicitly set the button type to `"button"` to prevent form submission:
+
+```jsx
+<button type="button" onClick={handleClick}>Click Me</button>
+```
+
+**Option 2 — Alternative:**  
+Use `event.preventDefault()` inside the click handler to stop the default submit behavior:
+
+```jsx
+const handleClick = (event) => {
+  event.preventDefault(); // Prevents page reload
+  console.log('clicked!');
+};
+
+<button onClick={handleClick}>Click Me</button>
+```
+
+> 💡 Tip: The second method is better when the button is inside a `<form>` and you want to add validation or conditional submission logic. Otherwise, go with option 1 for simplicity.
