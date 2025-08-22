@@ -3,7 +3,8 @@
 
 A Netflix-inspired movie browsing app powered by **TMDB** for real-time movie data and **OpenAI's GPT** for intelligent search queries. Integrated with **Firebase** for secure authentication and hosting.
 
-🚀 **Live Demo**: [react-netgpt.web.app](https://react-netgpt.web.app/) (In case link did not work)
+🚀 **Live Demo**: [react-netgpt.web.app](https://react-netgpt.web.app/) 
+(**Important:** The demo link may stop working after **25th August 2025** due to Firebase Dynamic Links shutdown.)
 <img width="1688" height="900" alt="image" src="https://github.com/user-attachments/assets/b26c5595-2272-434f-adc3-9a2b17fbe514" />
 
 
