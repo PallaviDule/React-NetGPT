@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react'
-import { NETFLIX_LOGIN_PAGE_BACKGROUND } from '../../constants/links';
+import { useRef, useState } from 'react'
 import Header from '../Header';
 import { validateFormData } from '../../utils/validate';
 import { getFirebaseAuth } from '../../utils/firebase';
@@ -24,6 +23,7 @@ const LoginPage = () => {
   const handleSignIn = (event) => {
     // console.log('email:', email, ' ,password:', password);
     // console.log('email:', email.current.value, ' ,password:', password.current.value);
+    //console.log('User name:', userName);
     event.preventDefault();
     const message = validateFormData(email.current.value, password.current.value, userName?.current?.value); // dev@gmail.com Dev!1234
     // console.log('errorMessage:', message);
@@ -72,6 +72,7 @@ const LoginPage = () => {
   };
   const handleUseSignInCode = (event) => {
     event.preventDefault();
+    alert('not avilable yet!');
   };
 
   return (
@@ -103,6 +104,7 @@ const LoginPage = () => {
             placeholder='Password' 
           />
           <button
+              type='button'
               className='bg-red-600 font-bold rounded-lg h-[50px] m-2 px-3'
               onClick={(e) => handleSignIn(e)}
           >
@@ -116,21 +118,29 @@ const LoginPage = () => {
               <button
                   className='font-bold rounded-lg h-[50px] m-2 px-3 text-white bg-gray-400 bg-opacity-30'
                   onClick={handleUseSignInCode}
+                  type='button'
               >
                 Use a Sign-In Code
               </button>
               <p className='text-sm m-2'>New to Netflix?
-                <button className='font-bold' onClick={() => toggleSignInForm()}> 
+                <button 
+                  className='font-bold' 
+                  onClick={() => toggleSignInForm()}
+                  type='button'
+                > 
                   Sign up now.
                 </button>
               </p> 
             </>) : 
           (<p className='text-sm m-2'>Already Registered?
-            <button className='font-bold' onClick={() => toggleSignInForm()}> 
+            <button 
+              className='font-bold' 
+              onClick={() => toggleSignInForm()}
+              type='button'
+            > 
               Sign In now.
             </button>
-          </p>)}
-          
+          </p>)}      
         </form>
     </div>
   )

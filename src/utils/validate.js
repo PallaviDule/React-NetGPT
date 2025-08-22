@@ -1,4 +1,3 @@
-// refer doc in doc/Regex.md to know more about these regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 const userNameRegex = /^(?=.*?[A-Z])(?=.*?[a-z])/
@@ -13,7 +12,7 @@ export const validateFormData = (email, password, userName) => {
     if(!isValidPassword) {
         return 'Password is invalid';
     }
-
+    console.log('user name:', userName);
     if(userName) {
         const isValidUserName = userNameRegex.test(userName);
 
